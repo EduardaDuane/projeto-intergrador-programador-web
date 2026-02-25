@@ -1,0 +1,94 @@
+:root {
+    --primary-color: #ffc107;
+    --secondary-color: #e63946;
+    --bg-dark: #0a0a0b;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body { background-color: #fcfcfc; }
+
+/* Hero Section */
+.hero-section {
+    background-color: var(--secondary-color);
+    height: 75vh;
+    padding: 20px 5%;
+    position: relative;
+    border-bottom-right-radius: 80px;
+}
+
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 15px 30px; border-radius: 50px; color: white;
+}
+
+.logo { font-size: 24px; font-weight: 800; }
+.logo span { color: var(--primary-color); }
+.nav-links { display: flex; list-style: none; gap: 25px; }
+.nav-links a { color: #fff; text-decoration: none; font-size: 14px; }
+
+.hero-content {
+    display: flex; justify-content: center; align-items: center;
+    height: 60%; position: relative; margin-top: 40px;
+}
+
+.bg-title {
+    position: absolute; font-size: 14vw; color: rgba(255, 255, 255, 0.1);
+    font-weight: 900; letter-spacing: 10px; z-index: 1;
+}
+
+.main-burger {
+    width: 520px; 
+    filter: drop-shadow(0 30px 50px rgba(0,0,0,0.5));
+    transition: 0.5s;
+    height: auto; 
+}
+
+.search-container {
+    position: absolute; bottom: -40px; left: 50%;
+    transform: translateX(-50%); width: 70%;
+}
+
+.search-box {
+    background: white; display: flex; padding: 25px;
+    border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* --- Grade de Ofertas (Estilo BK) --- */
+.container { padding: 100px 5% 50px; }
+.section-title { margin-bottom: 30px; color: #502314; font-size: 2rem; }
+
+.burger-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 20px;
+}
+
+.burger-card {
+    background: #fff;
+    border: 1px, solid #e0e0e0;
+    border-radius: 12px;
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    transition: 0.3s;
+    min-height: 180px;
+}
+
+.burger-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+
+.burger-info {
+    display: flex; flex-direction: column;
+    justify-content: space-between; width: 60%;
+}
+
+.burger-info h3 { color: #502314; font-size: 1.3rem; margin-bottom: 8px; }
+.burger-description { color: #757575; font-size: 0.9rem; line-height: 1.4; }
+.burger-price { font-weight: bold; color: #2e7d32; font-size: 1.2rem; margin-top: 15px; }
+
+.burger-img-wrapper {
+    width: 35%; display: flex; align-items: center; justify-content: center;
+}
+
+.burger-img-wrapper img { max-width: 140px; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1)); }
+
