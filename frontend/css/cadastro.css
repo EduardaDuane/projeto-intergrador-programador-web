@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Fundo da página em Vermelho */
+.hero-section {
+    background-color: #e63946;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+
+.login-container-dark {
+    background-color: #121212; 
+    width: 100%;
+    max-width: 450px;
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    color: #ffffff; 
+}
+
+
+.login-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.brand span {
+    color: #ffea2a;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-actions i {
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-actions i:hover {
+    color: #e63946;
+}
+
+/* Conteúdo do Login */
+.login-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.login-content p {
+    color: #b3b3b3;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.login-content p strong {
+    color: #e63946;
+}
+
+/* Inputs Estilizados */
+.input-box {
+    margin-bottom: 20px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #1e1e1e; /* Input levemente cinza para contraste */
+    border: 1px solid #333;
+    border-radius: 50px;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-box input:focus {
+    border-color: #e63946;
+    box-shadow: 0 0 8px rgba(230, 57, 70, 0.3);
+}
+
+/* Botão Entrar */
+.btn-login {
+    width: 100%;
+    padding: 15px;
+    background-color: #e63946;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn-login:hover {
+    background-color: #c52d3a;
+    transform: scale(1.02);
+}
+
+/* Links do Rodapé */
+.footer-links {
+    margin-top: 30px;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #e63946;
+    text-decoration: underline;
+}
+
+.footer-links span {
+    margin: 0 10px;
+    color: #444;
+}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BURGER MASTER - O Sabor Real</title>
+    <title>BURGER.BD</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -12,10 +12,10 @@
         <nav class="navbar">
             <div class="logo">BURGER<span>.</span>BD</div>
             <ul class="nav-links">
-                <li><a href="#">Cardápio</a></li>
-                <li><a href="#">Combos</a></li>
-                <li><a href="#">Unidades</a></li>
-                <li><a href="#">Sobre nós</a></li>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="cardapio.html">Cardápio</a></li>
+                <li><a href="index.html">Combos</a></li>
+                <li><a href="sobre.html">Sobre nós</a></li>
             </ul>
             <div class="nav-actions">
                 <i class="fas fa-shopping-cart"></i>
@@ -40,76 +40,232 @@
                         <option value="delivery">Delivery</option>
                         <option value="pickup">Retirada</option>
                     </select>
+                    
                 </div>
-                <button class="btn-search" id="btn-order">PEDIR AGORA</button>
+                <button class="btn-search" id="btn-order" onclick="fazerPedido()">PEDIR AGORA</button>
+                
             </div>
         </div>
     </header>
-
     <main class="container">
-        <section class="trending-section">
-            <h2>Os Mais Pedidos 🔥</h2>
-            <div class="burger-grid" id="burger-list">
+        <section class="trending-section" id="cardapio">
+            <h2>TOP 3 - MAIS PEDIDOS!</h2>
+            <div class="burger-grid">
+                <div class="burger-card">
+                    <div class="burger-info">
+                        <h3>3 BURGUER MASTER FIRE</h3>
+                        <p class="burger-description">Três hamburgueres com pão brioche, picanha, pimenta, bacon, alface, queijo cheddar, queijo coalho, queijo mussarela </p>
+                        <span class="burger-price">A partir de R$ 180,90</span>
+                    </div>
+                    <div class="burger-img-wrapper">
+                        <img src="img/3hamburguerespicanha.png" alt="Hambúrguer master">
+                    </div>
                 </div>
-                <main class="container">
-    <section class="menu-section">
-        <div class="burger-grid" id="burger-list"></div>
-        
-        <div class="burger-grid" id="burger-list"></div>
-    </section>
-</main>
+            </div>
+            <div class="burger-grid">
+                <div class="burger-card">
+                    <div class="burger-info">
+                        <h3>BURGUER TUDO</h3>
+                        <p class="burger-description">Pão brioche com crosta de parmesão, manteiga de garrafa, dois blends de 180g de carne, cupim desfiado defumado, cheddar , queijo empanado e frito,  bacon caramelizado com açúcar mascavo, cebola crispy , picles , ovo estrelado com gema mole, maionese da casa, rúcula + refrigerante.</p>
+                        <span class="burger-price">A partir de R$ 99,90</span>
+                    </div>
+                    <div class="burger-img-wrapper">
+                        <img src="img/variascoisas.png" alt="Hambúrguer master">
+                    </div>
+                    </div>
+            </div>
+             <div class="burger-grid">
+                <div class="burger-card">
+                    <div class="burger-info">
+                        <h3>BURGUER KIDS</h3>
+                        <p class="burger-description">Pão brioche 180g, queijo cheddar, cebola roxa, alface, tomate + porção pequena de fritas.</p>
+                        <span class="burger-price">A partir de R$ 50,00</span>
+                    </div>
+                    <div class="burger-img-wrapper">
+                        <img src="img/hamburguer2.png" alt="Hambúrguer master">
+                    </div>
+                    </div>
+            </div>
+        </section>
+
+        <section class="menu-section" id="combos">
+            <h2 class="section-title">BURGUERS</h2>
+            <div class="burger-grid" id="burger-list">
+                <div class="burger-grid">
+    <div class="burger-card">
+        <div class="burger-info">
+            <h3>Classic Cheese</h3>
+            <p class="burger-description">Pão brioche, blend 160g, queijo cheddar e maionese da casa.</p>
+            <span class="burger-price"> R$ 35,00</span>
+        </div>
+        <div class="burger-img-wrapper"><img src="img/H1.jpeg" alt="Burger"></div>
+    </div>
+    <div class="burger-card">
+        <div class="burger-info">
+            <h3>Bacon Deluxe</h3>
+            <p class="burger-description">Muito bacon crocante, queijo prato e cebola caramelizada.</p>
+            <span class="burger-price"> R$ 60,00</span>
+        </div>
+        <div class="burger-img-wrapper"><img src="img/H2.jpeg" alt="Burger"></div>
+    </div>
+
+    <div class="burger-card">
+        <div class="burger-info">
+            <h3>Double Smash</h3>
+            <p class="burger-description">Dois blends de 80g prensados, dobro de queijo e picles.</p>
+            <span class="burger-price">R$ 38,00</span>
+        </div>
+        <div class="burger-img-wrapper"><img src="img/H3.jpeg" alt="Burger"></div>
+    </div>
+    <div class="burger-card">
+        <div class="burger-info">
+            <h3>Chicken Crispy</h3>
+            <p class="burger-description">Frango empanado super crocante, alface americana e maionese.</p>
+            <span class="burger-price"> R$ 32,00</span>
+        </div>
+        <div class="burger-img-wrapper"><img src="img/H4.jpeg" alt="Burger"></div>
+    </div>
+
+    <div class="burger-card">
+        <div class="burger-info">
+            <h3>Picanha Grill</h3>
+            <p class="burger-description">Blend de picanha, queijo coalho grelhado e vinagrete.</p>
+            <span class="burger-price"> R$ 80,00</span>
+        </div>
+        <div class="burger-img-wrapper"><img src="img/H5.jpeg" alt="Burger"></div>
+    </div>
+    <div class="burger-card">
+        <div class="burger-info">
+            <h3>BBQ Monster</h3>
+            <p class="burger-description">Molho barbecue artesanal, onion rings e queijo cheddar.</p>
+            <span class="burger-price"> R$ 45,00</span>
+        </div>
+        <div class="burger-img-wrapper"><img src="img/H6.png" alt="Burger"></div>
+    </div>
+
+    <div class="burger-card">
+        <div class="burger-info">
+            <h3>Egg Burger</h3>
+            <p class="burger-description">Hambúrguer bovino com ovo frito na manteiga e queijo.</p>
+            <span class="burger-price"> R$ 36,00</span>
+        </div>
+        <div class="burger-img-wrapper"><img src="img/H7.png" alt="Burger"></div>
+    </div>
+    <div class="burger-card">
+        <div class="burger-info">
+            <h3>Truffle Burger</h3>
+            <p class="burger-description">Maionese trufada, cogumelos salteados e queijo suíço.</p>
+            <span class="burger-price"> de R$ 55,00</span>
+        </div>
+        <div class="burger-img-wrapper"><img src="img/H8.png" alt="Burger"></div>
+    </div>
+
+    <div class="burger-card">
+        <div class="burger-info">
+            <h3>Hot Jalapeño</h3>
+            <p class="burger-description">Para os fortes: pimenta jalapeño, chilli e sour cream.</p>
+            <span class="burger-price"> R$ 40,00</span>
+        </div>
+        <div class="burger-img-wrapper"><img src="img/H9.png" alt="Burger"></div>
+    </div>
+    <div class="burger-card">
+        <div class="burger-info">
+            <h3>Blue Cheese</h3>
+            <p class="burger-description">Blend bovino com creme de gorgonzola e nozes picadas.</p>
+            <span class="burger-price"> R$ 44,00</span>
+        </div>
+        <div class="burger-img-wrapper"><img src="img/H10.png" alt="Burger"></div>
+    </div>
+
+    <div class="burger-card">
+        <div class="burger-info">
+            <h3>Monster Triple</h3>
+            <p class="burger-description">Três carnes de 120g, cheddar triplo e bacon.</p>
+            <span class="burger-price"> R$ 65,00</span>
+        </div>
+        <div class="burger-img-wrapper"><img src="img/H11.png" alt="Burger"></div>
+    </div>
+    <div class="burger-card">
+        <div class="burger-info">
+            <h3>Cheddar Melt</h3>
+            <p class="burger-description">Hambúrguer banhado em cheddar líquido e cebola no shoyu.</p>
+            <span class="burger-price"> R$ 41,00</span>
+        </div>
+        <div class="burger-img-wrapper"><img src="img/H12.png" alt="Burger"></div>
+    </div>
+
+    <div class="burger-card">
+        <div class="burger-info">
+            <h3>Costela Premium</h3>
+            <p class="burger-description">Hambúrguer de costela desfiada com molho especial.</p>
+            <span class="burger-price"> R$ 60,00</span>
+        </div>
+        <div class="burger-img-wrapper"><img src="img/H13.png" alt="Burger"></div>
+    </div>
+    <div class="burger-card">
+        <div class="burger-info">
+            <h3>California Sun</h3>
+            <p class="burger-description">Abacate, alface, tomate e queijo branco.</p>
+            <span class="burger-price"> R$ 39,00</span>
+        </div>
+        <div class="burger-img-wrapper"><img src="img/H14.png" alt="Burger"></div>
+    </div>
+
+    <div class="burger-card">
+        <div class="burger-info">
+            <h3>Smokey Burger</h3>
+            <p class="burger-description">Carne defumada, queijo provolone e fumaça líquida.</p>
+            <span class="burger-price"> R$ 46,00</span>
+        </div>
+        <div class="burger-img-wrapper"><img src="img/H15.png" alt="Burger"></div>
+    </div>
+    <div class="burger-card">
+        <div class="burger-info">
+            <h3>Italiano</h3>
+            <p class="burger-description">Mozarela de búfala, manjericão fresco e tomate seco.</p>
+            <span class="burger-price"> de R$ 43,00</span>
+        </div>
+        <div class="burger-img-wrapper"><img src="img/H16.jpg" alt="Burger"></div>
+    </div>
+
+    <div class="burger-card">
+        <div class="burger-info">
+            <h3>Garlic Lovers</h3>
+            <p class="burger-description">Maionese de alho assado e chips de alho crocante.</p>
+            <span class="burger-price">R$ 37,00</span>
+        </div>
+        <div class="burger-img-wrapper"><img src="img/H7.jpeg" alt="Burger"></div>
+    </div>
+    <div class="burger-card">
+        <div class="burger-info">
+            <h3>Honey Mustard</h3>
+            <p class="burger-description">Molho de mostarda e mel, queijo brie e rúcula.</p>
+            <span class="burger-price">44,00</span>
+        </div>
+        <div class="burger-img-wrapper"><img src="img/H18.jpg" alt="Burger"></div>
+    </div>
+    <div class="burger-card">
+        <div class="burger-info">
+            <h3>Flash Burger</h3>
+            <p class="burger-description">Blend rápido de 100g para quem tem pressa e fome.</p>
+            <span class="burger-price"> R$ 25,00</span>
+        </div>
+        <div class="burger-img-wrapper"><img src="img/H19.jpeg" alt="Burger"></div>
+    </div>
+    <div class="burger-card">
+        <div class="burger-info">
+            <h3>Master Final</h3>
+            <p class="burger-description">O maior da casa: 4 carnes e todos os acompanhamentos.</p>
+            <span class="burger-price"> R$ 90,00</span>
+        </div>
+        <div class="burger-img-wrapper"><img src="img/H20.avif" alt="Burger"></div>
+    </div>
+</div>
+            </div>
         </section>
     </main>
 
     <script src="script.js"></script>
-    <body>
-    <main class="container">
-        <h2 class="section-title">COMBOS</h2>
-        <div class="burger-grid" id="burger-list">
-            <div class="burger-card">
-                <div class="burger-info">
-                    <div>
-                        <h3>Hambúrguer Master</h3>
-                        <p class="burger-description">Delicioso hambúrguer artesanal preparado com ingredientes selecionados.</p>
-                    </div>
-                    <span class="burger-price">A partir de R$ 50,00</span>
-                </div>
-                <body>
-                <div class="burger-img-wrapper">
-                    <img src="img/Gemini_Generated_Image_4zx01w4zx01w4zx0.png" alt="Burger">
-                </div>
-                
-            </div>
-            
-            </div>
-            <main class="container"></main>
-                 <div class="burger-grid" id="burger-list">
-            <div class="burger-card">
-                <div class="burger-info">
-                    <div>
-                        <h3>Hambúrguer vegetariano</h3>
-                        <p class="burger-description">Delicioso hambúrguer artesanal preparado com ingredientes selecionados.</p>
-                    </div>
-                    <span class="burger-price">A partir de R$ 60,00</span>
-                </div>
-                <div class="burger-img-wrapper">
-                    <img src="img/vegetariano.png" alt="Burger">
-                </div>
-                
-                <main class="container"></main>
-                 <div class="burger-grid" id="burger-list">
-            <div class="burger-card">
-                <div class="burger-info">
-                    <div>
-                        <h3>Hambúrguer 4 carnes</h3>
-                        <p class="burger-description">Delicioso hambúrguer artesanal preparado com ingredientes selecionados.</p>
-                    </div>
-                    <span class="burger-price">A partir de R$ 60,00</span>
-                </div>
-                <div class="burger-img-wrapper">
-                    <img src="img/4carne.png" alt="Burger">
-                </div>
-    </main>
 </body>
-</body>
+
 </html>

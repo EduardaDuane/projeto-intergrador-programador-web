@@ -44,4 +44,19 @@ export class UsuarioController {
         res.status(204).send()
     }
 
+    static async criarPedido(req, res) {
+        try {
+            const { endereco, tipoPedido } = req.body;
+
+            console.log(`Novo pedido: Endereço: ${endereco}, Tipo: ${tipoPedido}`);
+
+            res.status(201).json({ 
+                mensagem: "Pedido recebido com sucesso!",
+                dados: { endereco, tipoPedido }
+            });
+        } catch (error) {
+            res.status(500).json({ erro: "Erro ao processar pedido." });
+        }
+    }
+
 }

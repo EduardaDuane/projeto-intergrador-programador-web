@@ -1,15 +1,15 @@
-import { conn } from "../config/database.js"
+import { pool } from "../config/database.js"
 import { Usuario } from "../models/usuario.js"
 
 export class UsuarioRepository {
 
     static async buscarTodos() {
-        const [results] = await conn.query('SELECT * FROM usuarios');
+        const [results] = await pool.query('SELECT * FROM usuarios');
         return results.map(u => new Usuario(u.id, u.nome, u.email, u.senha))
     }
 
     static async buscarPorId(id) {
-        const [result] = await conn.query('SELECT * FROM usuarios WHERE id = ?', [id])
+        const [result] = await pool.query('SELECT * FROM usuarios WHERE id = ?', [id])
 
         if (result.length === 0) return null
 
@@ -18,7 +18,7 @@ export class UsuarioRepository {
     }
 
     static async buscarPorEmail(email) {
-        const [result] = await conn.query('SELECT * FROM usuarios WHERE email = ?', [email])
+        const [result] = await pool.query('SELECT * FROM usuarios WHERE email = ?', [email])
 
         if (result.length === 0) return null
 
@@ -29,7 +29,7 @@ export class UsuarioRepository {
     static async inserirUsuario(usuario) {
         const { nome, email, senha } = usuario
 
-        const [result] = await conn.query('INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)', [nome, email, senha])
+        const [result] = await pool.query('INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)', [nome, email, senha])
 
         return new Usuario(result.insertId, nome, email, senha)
     }
@@ -37,7 +37,7 @@ export class UsuarioRepository {
     static async atualizarUsuario(id, usuario) {
         const { nome, email, senha } = usuario
 
-        const [result] = await conn.query('UPDATE usuarios SET nome = ?, email = ?, senha = ? WHERE id = ?', [nome, email, senha, id])
+        const [result] = await pool.query('UPDATE usuarios SET nome = ?, email = ?, senha = ? WHERE id = ?', [nome, email, senha, id])
 
         if (result.affectedRows === 0) return null
 
@@ -45,7 +45,7 @@ export class UsuarioRepository {
     }
 
     static async excluirUsuario(id) {
-        const [result] = await conn.query('DELETE FROM usuarios WHERE id = ?', [id])
+        const [result] = await pool.query('DELETE FROM usuarios WHERE id = ?', [id])
         return result.affectedRows > 0
     }
 }

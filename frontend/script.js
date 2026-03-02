@@ -1,49 +1,129 @@
-const API_URL = 'http://localhost:3000/usuarios'; 
+const API_URL = 'http://localhost:3000';
 
-document.addEventListener('DOMContentLoaded', () => {
-    fetchBurgers();
-});
+// Função para enviar o pedido (equivalente ao adicionarPokemon)
+async function fazerPedido() {
+    const endereco = document.getElementById('endereco').value;
+    const tipoPedido = document.getElementById('tipoPedido').value;
 
-async function fetchBurgers() {
+    if (!endereco) {
+        alert("Por favor, digite seu endereço!");
+        return;
+    }
+
     try {
-        const response = await fetch(API_URL);
-        const burgers = await response.json();
-        renderBurgers(burgers);
-    } catch (error) {
-        console.error('Erro ao buscar cardápio:', error);
-        // Exemplo caso o servidor esteja desligado:
-        renderBurgers([{nome: "Hambúrguer master", preco: "50,00", id: 0}]);
+        const resposta = await fetch(`${API_URL}/pedido`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ endereco, tipoPedido })
+        });
+
+        const dados = await resposta.json();
+        alert(dados.mensagem || "Pedido enviado com sucesso!");
+
+    } catch (erro) {
+        console.error("Erro ao fazer pedido:", erro);
+        alert("Erro ao conectar com o servidor.");
     }
 }
 
-function renderBurgers(burgers) {
-    const burgerList = document.getElementById('burger-list');
-    burgerList.innerHTML = '';
+// Função para listar os pedidos (equivalente ao obterPokemon)
+async function obterPedidos() {
+    try {
+        const resposta = await fetch(`${API_URL}/usuarios`); // Rota do seu professor
+        const dados = await resposta.json();
 
-    burgers.forEach(item => {
-        // Criamos a estrutura que o seu CSS horizontal espera
-        const card = `
-            <div class="burger-card" onclick="addToCart(${item.id})">
-                <div class="burger-info">
-                    <div>
-                        <h3>${item.nome || 'Hambúrguer Gourmet'}</h3>
-                        <p class="burger-description">
-                            ${item.email || 'Delicioso hambúrguer artesanal preparado com ingredientes selecionados e muito sabor.'}
-                        </p>
-                    </div>
-                    <span class="burger-price">A partir de R$ ${item.preco || '34,90'}</span>
-                </div>
-                <div class="burger-img-wrapper">
-                    <img src="https://pngimg.com/uploads/burger_sandwich/burger_sandwich_PNG4133.png" alt="${item.nome}">
-                </div>
-            </div>
-        `;
-        burgerList.innerHTML += card;
+        // Supondo que você tenha uma lista de pedidos no seu HTML
+        const lista = document.getElementById('lista-pedidos');
+        if (!lista) return; 
+
+        lista.innerHTML = '';
+
+        dados.forEach((usuario) => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                Usuário: ${usuario.nome} - Email: ${usuario.email} 
+                <button onclick="atualizarUsuario(${usuario.id})">Editar</button> 
+                <button onclick="deletarUsuario(${usuario.id})">Remover</button>
+            `;
+            lista.appendChild(li);
+        });
+
+    } catch (erro) {
+        console.log("Erro ao obter dados:", erro);
+    }
+}
+
+// Função para deletar (equivalente ao deletarPokemons)
+async function deletarUsuario(id) {
+    try {
+        const resposta = await fetch(`${API_URL}/usuarios/${id}`, { 
+            method: 'DELETE' 
+        });
+        
+        if (resposta.status === 204) {
+            alert("Usuário deletado com sucesso!");
+            obterPedidos(); // Recarrega a lista
+        }
+    } catch (erro) {
+        alert("Erro ao deletar:", erro);
+    }
+}
+
+// Função para atualizar (equivalente ao atualizarPokemon)
+async function atualizarUsuario(id) {
+    const novoNome = prompt("Digite o novo nome:");
+    if (!novoNome) return;
+
+    try {
+        const resposta = await fetch(`${API_URL}/usuarios/${id}`, { 
+            method: 'PUT', // Em APIs reais usamos PUT ou PATCH para atualizar
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ nome: novoNome })
+        });
+        
+        const dados = await resposta.json();
+        alert("Atualizado com sucesso!");
+        obterPedidos();
+    } catch (erro) {
+        alert("Erro ao atualizar:", erro);
+    }
+}
+
+// --- Lógica de Navegação (Menu Smooth Scroll) ---
+document.querySelectorAll('.links-cabecalho a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId.startsWith('#')) {
+            e.preventDefault();
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
     });
-}
+document.addEventListener("DOMContentLoaded", function() {
+    
+    window.fazerPedido = function() {
+        const endereco = document.getElementById('search-location').value;
+        const tipoPedido = document.getElementById('order-type').value;
 
-function addToCart(id) {
-    if(id === 0) return;
-    alert('Hambúrguer adicionado ao carrinho! ID: ' + id); 
-}
+        if (endereco.trim() === "") {
+            alert("Por favor, digite seu endereço para continuar!");
+            document.getElementById('search-location').focus();
+            return;
+        }
 
+        const destino = document.getElementById('sessao-lanches');
+        if (destino) {
+            destino.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+});
+});
+const produtos = [
+    { id: 1, nome: "X-Burger", preco: 20 }
+    
+  ];
+  
